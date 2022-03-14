@@ -1,4 +1,4 @@
-# KPI-Tracker
+# KPI-Tracker (5 star rating system)
 This is a simple web app measures KPI for services that utilizes the 5 star rating system
 <h4> Features: </h4>
 <li>Calculates your current score<br></li>
