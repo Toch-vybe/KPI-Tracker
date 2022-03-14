@@ -1,0 +1,77 @@
+﻿@model KPITracker.Models.Calculate
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center mb-3">
+ <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br />
+ 
+</div>
+<div class="text-center">
+    <h1 class="display-5" style="color: #008b8b;">KPI Tr<i class="bi bi-star"></i>cker</h1>
+    <p style="color: #48d1cc;">Learn about your current KPI state and Safe Zone for your monthly KPI.</p>
+    <br />    
+</div>
+
+<!-- This takes in data from the form and sends to the controller. -->
+<form method="post">
+    <div style="min-height: 15vh;" class="parent container d-flex justify-content-center align-items-center">    
+        <div class="container row  col-6 p-1 mt-1">            
+            <div class="col-6">
+                <input type="number" asp-for="FiveStar" style="border-color: #48d1cc; color: #008b8b;" class="form-control mt-2" placeholder="5 stars" />
+            </div>
+            <div class="col-6">
+                <input type="number" asp-for="FourStar" style="border-color: #48d1cc; color: #008b8b;" class="form-control mt-2" placeholder="4 stars" />
+            </div>
+            <div class="col-6">
+                <input type="number" asp-for="ThreeStar" style="border-color: #48d1cc; color: #008b8b;" class="form-control mt-2" placeholder="3 stars" />
+            </div>
+            <div class="col-6">
+                <input type="number" asp-for="TwoStar" style="border-color: #48d1cc; color: #008b8b;" class="form-control mt-2" placeholder="2 stars" />
+            </div>
+            <div class="col-6">
+                <input type="number" asp-for="OneStar" style="border-color: #48d1cc; color: #008b8b;" class="form-control mt-2" placeholder="1 stars" />
+            </div>
+            <div class="col-6">
+                <button style="border-color: #48d1cc; color: #008b8b;" type="submit" asp-for="Submit" class="form-control mt-2">Submit</button>
+            </div>
+        </div>    
+    </div>
+</form>
+
+<!-- This section below displays the result to the screen. It checks if the KPI is above the score or not before displaying -->
+
+@if (TempData["success"] != null)
+{
+    <div style="min-height: 15vh;" class="parent container d-flex justify-content-center align-items-center>">
+        <div class="container row  col-6 p-1 mt-1">
+            <h3 style="border-color: #48d1cc; color: #008b8b;">Below is your result: </h3> <a class="text-end" asp-controller="Home" asp-action="Index"><i class="bi bi-x-lg"></i></a>
+                <div>Pass Mark   -   " <b style="color: green;">4.61</b>"</div>
+                <br> <br>
+                <div>Your current KPI is    -    <b style="color: red;">"@TempData["success"]"</b></div>
+                <br> <br>
+                <div>Additional 5stars needed to meet the Pass Mark     -    <b style="color: red;">"@TempData["starsNeeded"]"</b>  </div>            
+        </div>
+    </div>
+}
+
+else if (TempData["safe"] != null)
+{
+    <div style="min-height: 15vh;" class="parent container d-flex justify-content-center align-items-center>">
+        <div class="container row  col-6 p-1 mt-1">
+            <h3 style="border-color: #48d1cc; color: #008b8b;">Below is your result: </h3> <a class="text-end" asp-controller="Home" asp-action="Index"><i class="bi bi-x-lg"></i></a>
+                <div>Pass Mark   -  <b style="color: green;">4.61</b></div>
+                <br> <br>
+                <div>Your current KPI is     -     <b style="color: green;">"@TempData["safe"]"</b></div>
+                <br> <br>
+                <div>Strenght of your Csat:  </div>  
+                <br> <br>
+                <div class="progress">
+                  <div class="progress-bar" role="progressbar" style="width: @TempData["csatStr"];" aria-valuenow="@TempData["csatStr"]" aria-valuemin="0" aria-valuemax="100">@TempData["csatStr"]</div>
+                </div>
+                <br> <br>
+                <div>It will take about   -    <b style="color: red; ">"@TempData["starsToAvoid"]"</b> Dsat to bring you down</div>
+        </div>
+    </div>
+}
