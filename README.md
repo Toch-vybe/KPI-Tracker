@@ -11,3 +11,5 @@ This is a simple web app measures KPI for services that utilizes the 5 star rati
 <h4> Page preview: </h4>
 
 ![image](https://user-images.githubusercontent.com/60288017/158169656-bcd58b34-2f07-476a-a968-00dd3adae16a.png)
+
+<h4> Preview the <a href="https://kpitracker.azurewebsites.net" target="_blank">web page</a> </h4>
