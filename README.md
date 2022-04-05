@@ -1,8 +1,8 @@
 # KPI-Tracker (5 star rating system)
 This is a simple web app measures KPI for services that utilizes the 5 star rating system
 <h4> Features: </h4>
-<li>Calculates your current score<br></li>
-<li>If you are below the pass mark, it lets you know how many ratings to meet up<br></li>
+<li>Calculates your current score.<br></li>
+<li>If you are below the pass mark, it lets you know how many ratings to meet up.<br></li>
 <li>If you are above the pass mark, it lets you know how many ratings can bring you down<br></li>
 <li>If you are above the pass mark, it shows you the strenght of your score<br></li><br>
 
